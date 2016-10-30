@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="js/template.js"></script>
+    <script src="js/script.js"></script>
+</head>
+<body>
+  <div class="wrapper">
+    <script type="text/tmpl" id="test-tmpl">
+      <h1>Тест</h1>
+        <form id="test" method="POST">
+          <% for (var i = 0; i < data.length; i++) { %>
+            <h4>
+              <%= data[i].text %>
+            </h4>
+
+            <ul class="text<%= i %>">
+              <% for (var j = 0; j < data[i].answers.length; j++) { %>
+                <li class="text_ansvers<%= i %>">
+                  <label>
+                    <input type="checkbox" value="<%= i %>" id="<%= i %>">
+                    <%= data[i].answers[j] %>
+                  </label>
+                </li>
+                <% }; %>
+            </ul><br>
+            <% }; %>
+        <button type="submit" id="go"> Проверить результат </button>
+      </form>
+    </script>
+</div>
+
+<div id="modal_form">
+      <span id="modal_close">x</span></br></br></br></br>
+      <span id="modal_result"></span>
+      <div id="modal_button">
+        <button type="button" id="button">Сохранить результаты</button>
+      </div>
+</div>
+<div id="overlay"></div>
+
+</body>
+</html>
